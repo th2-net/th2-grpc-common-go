@@ -9,7 +9,7 @@ MODULE_DIR=pkg/grpc
 PROTOC_VERSION=21.12
 PROTOC_GEN_GO_VERSION=v1.36.5
 
-init-work-space: prepare-grpc-module configure-grpc-generator generate-grpc-files tidy
+init-work-space: configure-grpc-generator generate-grpc-files tidy
 
 configure-grpc-generator:
 	go install google.golang.org/protobuf/cmd/protoc-gen-go@$(PROTOC_GEN_GO_VERSION)
@@ -18,7 +18,7 @@ prepare-grpc-module:
 	go get $(TH2_GRPC_COMMON_URL)
 	go get google.golang.org/protobuf@$(PROTOC_GEN_GO_VERSION)
 
-generate-grpc-files:
+generate-grpc-files: prepare-grpc-module tidy
 	$(eval $@_COMMON_PROTO_DIR := $(shell go list -m -f '{{.Dir}}' $(TH2_GRPC_COMMON_URL))/$(COMMON_SRC_MAIN_PROTO_DIR))
 	protoc \
 		--go_out=. \
