@@ -2,9 +2,7 @@ COMMON_SRC_MAIN_PROTO_DIR=src/main/proto
 GITHUB_TH2=github.com/th2-net
 
 TH2_GRPC_COMMON=th2-grpc-common
-TH2_GRPC_COMMON_URL=$(GITHUB_TH2)/$(TH2_GRPC_COMMON)@go_package # TODO: replace to a tag after submit PR https://github.com/th2-net/th2-grpc-common/pull/62
-
-MODULE_DIR=pkg/grpc
+TH2_GRPC_COMMON_URL=$(GITHUB_TH2)/$(TH2_GRPC_COMMON)@dev-version-4 # TODO: replace to a tag after solving https://nvd.nist.gov/vuln/detail/CVE-2025-24970
 
 PROTOC_VERSION=21.12
 PROTOC_GEN_GO_VERSION=v1.36.5

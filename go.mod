@@ -1,6 +1,6 @@
 module github.com/th2-net/th2-grpc-common-go
 
-go 1.23.0
+go 1.21.0
 
 require (
 	github.com/golang/protobuf v1.5.0
