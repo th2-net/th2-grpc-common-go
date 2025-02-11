@@ -39,7 +39,7 @@ generate-grpc-files: configure-grpc-generator prepare-grpc-module tidy
 		--proto_path=$($@_COMMON_PROTO_DIR) \
 		$(shell find $($@_COMMON_PROTO_DIR) -name '*.proto' )
 
-check-grpc-files:
+check-grpc-files: generate-grpc-files
 	@git diff --exit-code ./*.go || { echo "Committed Protobuf files do not match the newly generated. Please, regenerate Protobuf and commit changes"; exit 1; }
 
 tidy:
