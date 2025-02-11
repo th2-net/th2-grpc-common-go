@@ -19,11 +19,7 @@ jobs:
       - name: Check gRPC generated files not manually changed
         shell: bash
         run: |
-          make generate-grpc-files
-          if ! git diff --name-only --exit-code ./*.go; then
-            echo "Committed Protobuf files do not match the newly generated. Please, regenerate Protobuf and commit changes"
-            exit 1
-          fi
+          make check-grpc-files
 
       - name: Check sources
         run: make run-test
