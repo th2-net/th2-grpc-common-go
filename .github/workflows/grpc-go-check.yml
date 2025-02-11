@@ -14,12 +14,11 @@ jobs:
           go-version-file: go.mod
 
       - name: Install protoc
-        run: sudo apt-get update && sudo apt-get install -y protobuf-compiler && protoc --version
+        run: make install-protoc
 
       - name: Check gRPC generated files not manually changed
         shell: bash
-        run: |
-          make check-grpc-files
+        run: make check-grpc-files
 
       - name: Check sources
         run: make run-test
