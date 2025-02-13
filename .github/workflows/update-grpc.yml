@@ -65,7 +65,8 @@ jobs:
         uses: mikepenz/release-changelog-builder-action@v5
         with:
           configuration: .github/workflows/update-grpc-changelog-config.json
-          toTag: ${{ env.NEAREST_TAG }}
+          fromTag: ${{ env.NEAREST_TAG }}
+          toTag: ${{ env.TAG }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Create release
