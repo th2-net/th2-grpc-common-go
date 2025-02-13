@@ -10,11 +10,17 @@
       },
       {
         "title": "## Dependencies",
-        "labels": ["dependencies"]
+        "labels": ["dependencies","Updated"]
       },
       {
         "title": "## 📦 Uncategorized",
         "labels": []
+      }
+    ],
+    "label_extractor": [
+      {
+        "pattern": "^(Updated).*",
+        "target": "$1"
       }
     ],
     "ignore_labels": [
@@ -28,5 +34,5 @@
     "pr_template": "- #{{TITLE}} (PR: ##{{NUMBER}})",
     "empty_template": "Nothing here today",
     "trim_values": true,
-    "base_branches": [ "master" ]
+    "base_branches": [ "main" ]
   }
