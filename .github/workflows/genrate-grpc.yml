@@ -19,21 +19,6 @@ env:
   TAG: test-grpc-common-go
 
 jobs:
-  version:
-    runs-on: ubuntu-latest
-    outputs:
-      CURRENT_VERSION: ${{ steps.versions.outputs.CURRENT_VERSION }}
-      NEXT_VERSION: ${{ steps.versions.outputs.NEXT_VERSION }}
-    steps:
-      - name: 'Checkout Repository'
-        uses: actions/checkout@v4
-      - name: Get version
-        id: versions
-        uses: HardNorth/github-version-generate@v1.4.0
-        with:
-          version-source: file
-          version-file: ${{ env.VERSION_FILE }}
-          version-file-extraction-pattern: ${{ env.VERSION_PATTERN }}
   generate-grpc:
     runs-on: ubuntu-latest
     permissions:
