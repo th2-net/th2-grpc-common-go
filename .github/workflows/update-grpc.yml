@@ -43,7 +43,7 @@ jobs:
       - name: Update th2-grpc-common tag in Makefile
         shell: bash
         run: >
-          sed --in-place "s/^${{ env.VERSION_VARIABLE }}=.*/${{ env.VERSION_VARIABLE }}=${{ env.TAG }} #/" "${{ env.MAKEFILE }}"
+          sed --in-place "s/^${{ env.VERSION_VARIABLE }}=.*/${{ env.VERSION_VARIABLE }}=${{ env.TAG }} # Updated by Github workflow/" "${{ env.MAKEFILE }}"
       - name: Install protoc
         run: make install-protoc
       - name: Check gRPC generated files not manually changed
@@ -58,7 +58,7 @@ jobs:
         with:
           add: "['*.go', '${{ env.MAKEFILE }}']"
           default_author: github_actions
-          message: "Updated th2-grpc-common:${{ env.TAG }}"
+          message: "Updated gRPC source using th2-grpc-common:${{ env.TAG }}"
           tag: ${{ env.TAG }}
       - name: Build changelog
         id: build_changelog
