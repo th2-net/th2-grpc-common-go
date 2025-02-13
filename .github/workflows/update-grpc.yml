@@ -64,6 +64,7 @@ jobs:
         id: build_changelog
         uses: mikepenz/release-changelog-builder-action@v5
         with:
+          mode: "COMMIT"
           configuration: .github/workflows/update-grpc-changelog-config.json
           fromTag: ${{ env.NEAREST_TAG }}
           toTag: ${{ env.TAG }}
