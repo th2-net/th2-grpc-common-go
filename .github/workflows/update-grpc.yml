@@ -1,4 +1,4 @@
-name: generate grpc using new th2-grpc-common
+name: Update gRPC source
 
 # on:
 #   workflow_dispatch:
@@ -19,7 +19,7 @@ env:
   TAG: test-grpc-common-go
 
 jobs:
-  generate-grpc:
+  update-grpc:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -64,7 +64,7 @@ jobs:
         id: build_changelog
         uses: mikepenz/release-changelog-builder-action@v5
         with:
-          configuration: changelog_config.json
+          configuration: .github/workflows/update-grpc-changelog-config.json
           toTag: ${{ env.NEAREST_TAG }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
