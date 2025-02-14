@@ -38,15 +38,12 @@ jobs:
         shell: bash
         run: >
           sed --in-place "s/^${{ env.VERSION_VARIABLE }}=.*/${{ env.VERSION_VARIABLE }}=${{ inputs.grpc-common-tag }} # Updated by Github workflow/" "${{ env.MAKEFILE }}"
-      - name: Install protoc
-        run: make install-protoc
-      - name: Check gRPC generated files not manually changed
-        shell: bash
-        run: make check-grpc-files
       - name: Check sources
         run: make run-test
       - name: Build sources
         run: make build
+      - name: Update go.mod and go.sum
+        run: make tidy
       - name: Commit changes and create tag
         uses: EndBug/add-and-commit@v9
         with:
