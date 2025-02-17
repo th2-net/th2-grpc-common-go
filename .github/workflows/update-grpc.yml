@@ -31,13 +31,13 @@ jobs:
           go-version-file: go.mod
       - name: Install protoc
         run: make install-protoc
-      - name: Check gRPC generated files not manually changed
-        shell: bash
-        run: make generate-grpc-files
       - name: Update th2-grpc-common tag in Makefile
         shell: bash
         run: >
           sed --in-place "s/^${{ env.VERSION_VARIABLE }}=.*/${{ env.VERSION_VARIABLE }}=${{ inputs.grpc-common-tag }} # Updated by Github workflow/" "${{ env.MAKEFILE }}"
+      - name: Generate gRPC files
+        shell: bash
+        run: make generate-grpc-files
       - name: Check sources
         run: make run-test
       - name: Build sources
