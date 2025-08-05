@@ -2,7 +2,7 @@ COMMON_SRC_MAIN_PROTO_DIR=src/main/proto
 GITHUB_TH2=github.com/th2-net
 
 # TH2_GRPC_COMMON_VERSION is updated by github workflow
-TH2_GRPC_COMMON_VERSION=dev-version-4 # TODO: replace to a tag after solving https://nvd.nist.gov/vuln/detail/CVE-2025-24970
+TH2_GRPC_COMMON_VERSION=4.6.0 # Updated by Github workflow
 TH2_GRPC_COMMON=th2-grpc-common
 TH2_GRPC_COMMON_URL=$(GITHUB_TH2)/$(TH2_GRPC_COMMON)@$(TH2_GRPC_COMMON_VERSION)
 
