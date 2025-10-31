@@ -53,7 +53,7 @@ jobs:
           tag: ${{ inputs.grpc-common-tag }}
       - name: Build changelog
         id: build_changelog
-        uses: mikepenz/release-changelog-builder-action@v5
+        uses: mikepenz/release-changelog-builder-action@v6
         with:
           mode: "COMMIT"
           configuration: .github/workflows/update-grpc-changelog-config.json
